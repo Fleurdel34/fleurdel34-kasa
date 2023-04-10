@@ -2,9 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom/client'
 import './index.css';
 import App from './App';
-import Home from '.../Home';
-import Apropos from '../Apropos';
-import Logements from '../Logements';
+import Home from './pages/Home';
+import Apropos from './pages/Apropos';
+import Logements from './pages/Logements';
 import reportWebVitals from './reportWebVitals';
 import { Route, BrowserRouter as Router} from 'react-router-dom';
 import Header from './components/Header';
