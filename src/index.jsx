@@ -9,6 +9,7 @@ import reportWebVitals from './reportWebVitals';
 import { Route, BrowserRouter as Router} from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import Error from './components/Error';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -16,16 +17,22 @@ root.render(
     <App />
     <Router>
       <Header />
-      <Route exact path='/'>
-        <Home />
-      </Route>
-      <Route path='/apropos'>
-        <Apropos />
-      </Route>
-      <Route path='/logements'>
-        <Logements />
-      </Route>
+      <switch>
+        <Route exact path='/'>
+          <Home />
+        </Route>
+        <Route path='/apropos'>
+          <Apropos />
+        </Route>
+        <Route path='/logements/:id'>
+          <Logements />
+        </Route>
+        <Route>
+          <Error />
+        </Route>
+      </switch>
       <Footer />
+
     </Router>
   </React.StrictMode>
 );
