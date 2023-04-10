@@ -6,7 +6,7 @@ import Home from './pages/Home';
 import Apropos from './pages/Apropos';
 import Logements from './pages/Logements';
 import reportWebVitals from './reportWebVitals';
-import { Route, BrowserRouter as Router} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Error from './components/Error';
@@ -17,22 +17,18 @@ root.render(
     <App />
     <Router>
       <Header />
-      <switch>
-        <Route exact path='/'>
-          <Home />
+      <Routes>
+        <Route exact path='/home' element={ <Home /> }>
         </Route>
-        <Route path='/apropos'>
-          <Apropos />
+        <Route path='/apropos' element={ <Apropos /> }>
         </Route>
-        <Route path='/logements/:id'>
-          <Logements />
+        <Route path='/logements/:id' element={ <Logements /> }>
         </Route>
         <Route>
           <Error />
         </Route>
-      </switch>
+      </Routes>
       <Footer />
-
     </Router>
   </React.StrictMode>
 );
