@@ -32,8 +32,8 @@ const CollapseArrow=styled.div`
     background-color: #fff;
     clip-path: polygon(100% 0, 0 0, 50% 50%);
     margin-right:1rem;
+    transform-origin:top center;
     transform: rotate(0deg);
-    transform-origin: center;
     overflow: hidden;
     transition: all 0.3s ease-out;
     margin-top:1rem;
