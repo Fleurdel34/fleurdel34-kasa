@@ -19,10 +19,6 @@ const AproposImg = styled.img`
     margin-bottom:2rem;
 `
 
-
-
-
-
 function Apropos(){
 
     return (
@@ -54,9 +50,6 @@ function Apropos(){
             </Collapse>
 
         </AproposDiv>
-        
-           
-            
        
     )
 }

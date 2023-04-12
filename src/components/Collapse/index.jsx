@@ -11,6 +11,8 @@ const CollapseDiv = styled.div`
 `
 
 const CollapseButton=styled.div`
+    display:flex;
+    justify-content:space-between;
     background: #FF6060;
     border-radius: 5px;
     height:47px;
@@ -23,7 +25,19 @@ const CollapseButton=styled.div`
     color: #FFFFFF;
     padding-left:10px;
     padding-top:10px;
-
+`
+const CollapseArrow=styled.div`
+    width: 32px;
+    height: 20px;
+    background-color: #fff;
+    clip-path: polygon(100% 0, 0 0, 50% 50%);
+    margin-right:1rem;
+    transform: rotate(0deg);
+    transform-origin: center;
+    overflow: hidden;
+    transition: all 0.3s ease-out;
+    margin-top:1rem;
+    ${({ rotate }) => rotate && `transform: rotate(180deg)`} 
 `
 const ParagrapheDiv=styled.div`    
     font-family: 'Montserrat';
@@ -32,21 +46,25 @@ const ParagrapheDiv=styled.div`
     font-size: 24px;
     color: #FF6060;
     width:68%;
-    word-break: break-word;
-    
+    word-break: break-word; 
 `
 
 function Collapse(props){
     const [isOpen, setisOpen] = useState(false);
+    const [rotate, setRotate] = useState(false);
+    const handleClick = () => setRotate((prevState) => (!prevState ))
 
     return (
         <CollapseDiv>
-            <CollapseButton onClick={() => setisOpen(!isOpen)}>{props.label}</CollapseButton> 
+            <CollapseButton onClick={() => setisOpen(!isOpen)}>
+                {props.label} 
+                <CollapseArrow rotate={rotate} onClick={handleClick}></CollapseArrow> 
+            </CollapseButton> 
             {isOpen && <ParagrapheDiv>
                 {props.children}
             </ParagrapheDiv>}
-        </CollapseDiv>)
-            
+        </CollapseDiv>
+    )     
         
 }
 export default Collapse
