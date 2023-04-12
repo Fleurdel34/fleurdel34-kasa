@@ -4,29 +4,36 @@ import styled from "styled-components"
 
 const HeaderDiv = styled.div`
     display:flex;
+    justify-content:space-between;
     margin-top:2rem;
-    width:100%;
-    padding-left:7rem;
+   margin-left:7%;
     
 `
+
 const LinkDiv = styled.div`
-    width:50%;
+    width:25%;
     display:flex;
-    justify-content:flex-end;
+    justify-content:flex-start;
     align-self:center;
     text-align: right;
-    padding-left:23rem;
+    margin-right:1%;
+    
 `
 
 const LinkStyle = styled(Link)`
     display:flex;
-    justify-content:flex-end;
+    justify-content:flex-start;
     color:#ff6060;
-    width:25%;
+    width:50%;
     font-size:24px;
     font-family:Montserrat;
     font-style: normal;
     font-weight: 500;
+    text-decoration:none;
+    &:hover{
+        cursor: pointer;
+        text-decoration:underline;
+    }
     
 `
 
@@ -34,12 +41,14 @@ const LinkStyle = styled(Link)`
 function Header(){
     return(
         <HeaderDiv>
-                <img src= {LOGO1} alt="Logo"/>
+           
+            <img src= {LOGO1} alt="Logo"/>
+    
             <LinkDiv>
                 <LinkStyle to="/">Accueil</LinkStyle>
                 <LinkStyle to="/apropos">A propos</LinkStyle>
             </LinkDiv>
-        </HeaderDiv>
+    </HeaderDiv>
     )
 }
 export default Header
