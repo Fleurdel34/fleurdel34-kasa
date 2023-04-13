@@ -1,7 +1,7 @@
 /*import styled from "styled-components"*/
 import logements from "../components/datas/logements.json"
 import { useParams } from "react-router-dom"
-
+import Slideshow from "../components/Slideshow"
 
 
 function Logements(){
@@ -14,21 +14,31 @@ const found = logements.find(function(item) {
         return item;
     }
     return item
-    }) 
+    });
+
+const host = found.host;
 
     return(
             <div key = {found.id}>
-                <img src={found.cover} alt={found.title}/>
-                <img src={found.pictures} alt={found.title}></img>
-                <h1>{found.title}</h1>
                 <div>
+                <Slideshow />
+                </div>
+                <div>
+                    <h1>{found.title}</h1>
                     <p>{found.location}</p>
-                    <p>{found.tag}</p>
-                    <span>
-                        {found.host}
-                        {found.rating}
-                    </span>
+                    <p>{found.tags}</p>
+                </div>
+                <div>
+                    <span>{host.name}</span>
+                    <img src ={host.picture} alt = {host.name}></img>
+                </div>
+                <div>    
+                    <span>{found.rating}</span>
+                </div>
+                <div>
                     <p>{found.description}</p>
+                </div>
+                <div>
                     <p>{found.equipments}</p>
                 </div>
             </div>)
