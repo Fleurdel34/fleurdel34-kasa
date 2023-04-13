@@ -1,5 +1,6 @@
 import styled from "styled-components"
 import logements from "../datas/logements.json"
+
  
 const SectionCard = styled.section`
     display:grid;
@@ -34,8 +35,6 @@ const ArticleCard = styled.article`
 const ParagrapheArticle = styled.p`
     inline-size:200px;
     margin-left:20px;
-  
-
 `
 
 function Card(){
