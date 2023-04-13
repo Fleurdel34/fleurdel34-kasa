@@ -1,12 +1,11 @@
-/*import styled from "styled-components"*/
-
 import Banner from "../components/Banner"
 import Card from "../components/Card"
 
 
 
 
-function Hometest (){
+function Home (){
+
 
   return (
       <div>
@@ -16,4 +15,4 @@ function Hometest (){
       
   )
 }
-export default Hometest
+export default Home

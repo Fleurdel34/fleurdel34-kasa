@@ -1,21 +1,39 @@
 /*import styled from "styled-components"*/
-import logements from "../datas/logements.json"
-import { Link } from "react-router-dom";
+import logements from "../components/datas/logements.json"
+import { useParams } from "react-router-dom"
 
-/*import { useParams } from "react-router-dom";*/
+
 
 function Logements(){
-   /*const { id } = useParams()*/
 
-   return(
-        <div>
-            {logements.map((item)=>(
-                <li key={item.id}>
-                    <Link to={`/Logements/${item.id}`}></Link>
-                    <img src={item.cover} alt={item.title}/>
-                    <h1>{item.title}</h1>
-                </li>))}
-        </div>) 
+let {id} = useParams();
+
+const found = logements.find(function(item) {
+
+    if (item.id === id){
+        return item;
+    }
+    return item
+    }) 
+
+    return(
+            <div key = {found.id}>
+                <img src={found.cover} alt={found.title}/>
+                <img src={found.pictures} alt={found.title}></img>
+                <h1>{found.title}</h1>
+                <div>
+                    <p>{found.location}</p>
+                    <p>{found.tag}</p>
+                    <span>
+                        {found.host}
+                        {found.rating}
+                    </span>
+                    <p>{found.description}</p>
+                    <p>{found.equipments}</p>
+                </div>
+            </div>)
+
+       
 }
 
 export default Logements

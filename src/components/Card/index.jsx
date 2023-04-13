@@ -1,5 +1,6 @@
 import styled from "styled-components"
 import logements from "../datas/logements.json"
+import { Link } from "react-router-dom";
 
  
 const SectionCard = styled.section`
@@ -31,21 +32,24 @@ const ArticleCard = styled.article`
     flex-wrap:wrap;
     align-items: flex-end;
     color: #FFFF;
+    
 `
 const ParagrapheArticle = styled.p`
     inline-size:200px;
     margin-left:20px;
+    text-decoration:none;
 `
 
 function Card(){
 
     return(
         <SectionCard>
-           
             {logements.map((item)=>
-                <ArticleCard>
-                    <ParagrapheArticle key={item.id}>{item.title}</ParagrapheArticle>
-                </ArticleCard>)}
-        </SectionCard>)
+                <Link key={item.id} to={`/Logements/${item.id}`}>
+                    <ArticleCard>
+                        <ParagrapheArticle >{item.title}</ParagrapheArticle>
+                    </ArticleCard>
+                </Link>)}
+        </SectionCard>)      
 }
 export default Card
