@@ -1,8 +1,8 @@
-import styled from "styled-components"
+import styled from "styled-components";
 import { VscChevronRight } from "react-icons/vsc";
-import { VscChevronLeft } from "react-icons/vsc"
-import {RxDotFilled } from "react-icons/rx";
+import { VscChevronLeft } from "react-icons/vsc";
 import { useState } from "react";
+
 
 
 const SlideChevron  = styled.div`
@@ -13,9 +13,9 @@ const SlideChevron  = styled.div`
     justify-contente:space-between;
     top:60%;    
 `
-const styleLeft = {height:"120px", width:"100%", weight:"700", color:"white",position:"relative", left:"-15%"}
+const styleLeft = {height:"120px", width:"100%", weight:"700", color:"black",position:"relative", top: "-180%", left:"-15%"}
 
-const styleRight = {height:"120px", width:"100%", weight:"700", color:"white", position:"relative", right:"-15%"}
+const styleRight = {height:"120px", width:"100%", weight:"700", color:"black", position:"relative", top: "-180%", right:"-15%"}
 
 const SlideImgIconDiv = styled.div`
     display:flex;
@@ -25,25 +25,26 @@ const SlideImgIconDiv = styled.div`
 const SlideImgDiv = styled.div`
     width:100%;
     display:flex;
-    justify-content:center
-
+    justify-content:center;
 `
-
 const SlideImg = styled.img`
     width:86%;
     height:415px;
-    object-fit:cover;
-    
-
+    object-fit:cover;   
 `
-const SlideIcon = styled.div`
-        display:flex;
-        justify-content:center;
-
-
+const SpanNumber = styled.span`
+    width:100%;
+    display:flex;
+    justify-content:center;
+    position:absolute;
+    top:58%;
+    color:black;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 142.6%;
 `
-
-
 
 function Slider(props){
 
@@ -53,38 +54,30 @@ const slide = props.slide;
 
 const prevSlide = () =>{
     const isFirstSlide = currentIndex === 0;
-    const newIndex = isFirstSlide ? slide.lenght -1 : currentIndex -1;
+    const newIndex = isFirstSlide ? slide.length -1 : currentIndex -1;
     setCurrentIndex(newIndex)
 }
 const nextSlide = () =>{
-    const isLastSlide = currentIndex === slide.lenght -1;
+    const isLastSlide = currentIndex === slide.length -1;
     const newIndex = isLastSlide ? 0 : currentIndex+1;
     setCurrentIndex(newIndex)
 
 }
-
-const goToSlide = (slideIndex) =>{
-    setCurrentIndex(slideIndex);
-}
-
+   
 return (
         <div>
-            <SlideChevron>
-                <VscChevronLeft style ={styleLeft} onclick = {prevSlide}/>
-                <VscChevronRight style ={styleRight} onclick= {nextSlide}/>
+            <SlideImgDiv>
+                <SlideImg src={slide[currentIndex]} alt =""></SlideImg>
+            </SlideImgDiv>
+            <SlideChevron style={{ visibility:slide.length -1 === 0 ? 'hidden': 'visible'}}>
+                <VscChevronLeft style ={styleLeft}  onClick={prevSlide}/>
+                <VscChevronRight style ={styleRight} onClick={nextSlide} />
             </SlideChevron>
-            <div>
-                {slide.map((slide, slideIndex)=>{
-                        return <SlideImgIconDiv  >
-                                <SlideImgDiv key = {slideIndex}>
-                                    <SlideImg src = {slide} alt =""></SlideImg>
-                                </SlideImgDiv>
-                                <SlideIcon key = {slideIndex}>
-                                    <RxDotFilled onClick={() => goToSlide(slideIndex)}/>
-                                </SlideIcon>
-                                </SlideImgIconDiv>})}
-            </div>
-         </div>)
+            <SlideImgIconDiv style={{visibility:slide.length -1 === 0 ? 'hidden': 'visible'}}>
+                <SpanNumber>{currentIndex}/{props.slide.length}</SpanNumber>
+            </SlideImgIconDiv>
+        </div>)
 
 }
 export default Slider
+

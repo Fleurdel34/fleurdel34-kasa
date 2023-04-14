@@ -1,4 +1,4 @@
-/*import styled from "styled-components"*/
+
 import Slider from "../components/Slideshow";
 import logements from "../components/datas/logements.json"
 import { useParams } from "react-router-dom"
