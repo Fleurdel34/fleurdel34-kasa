@@ -3,8 +3,6 @@ import { VscChevronRight } from "react-icons/vsc";
 import { VscChevronLeft } from "react-icons/vsc";
 import { useState } from "react";
 
-
-
 const SlideChevron  = styled.div`
     height:120px;
     width:100%;
@@ -13,9 +11,9 @@ const SlideChevron  = styled.div`
     justify-contente:space-between;
     top:60%;    
 `
-const styleLeft = {height:"120px", width:"100%", weight:"700", color:"black",position:"relative", top: "-150%", left:"-15%"}
+const styleLeft = {height:"120px", width:"100%", weight:"700", color:"white",position:"relative", top: "-150%", left:"-15%"}
 
-const styleRight = {height:"120px", width:"100%", weight:"700", color:"black", position:"relative", top: "-150%", right:"-15%"}
+const styleRight = {height:"120px", width:"100%", weight:"700", color:"white", position:"relative", top: "-150%", right:"-15%"}
 
 const SlideImgIconDiv = styled.div`
     display:flex;
@@ -39,7 +37,7 @@ const SpanNumber = styled.span`
     justify-content:center;
     position:absolute;
     top:63%;
-    color:black;
+    color:white;
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 500;

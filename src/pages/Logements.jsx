@@ -3,6 +3,7 @@ import Slider from "../components/Slideshow";
 import logements from "../components/datas/logements.json";
 import { useParams } from "react-router-dom";
 import Collapse from "../components/Collapse";
+import { VscStarFull } from "react-icons/vsc";
 
 const StylePage = styled.div`
     display:flex;
@@ -47,7 +48,7 @@ const StyleTag = styled.p`
     height:25px;
     color:#fff;
     text-align:center;
-    margin-bottom:0;
+    margin-bottom:1.5rem;
     margin-right:7px;
 `
 const StyleDivHost= styled.div`
@@ -73,6 +74,10 @@ const StyleImg = styled.img`
     width:64px;
     height:64px
 `
+const StyleStarFull = {color:"#FF6060", width:"24.75px", height:"24px"};
+
+
+//const StyleStarEmpty ={ width:"24.75px", height:"24px", color: "grey", border: "grey"}
 
 const StyleCollapseDiv=styled.div`
     width:100%;
@@ -81,17 +86,20 @@ const StyleCollapseDiv=styled.div`
 `
 const StyleDivDescription = styled.div`
     width:50%;
+   
 `
 const StyleDivEquipements = styled.div`
     width:50%;
+   
 `
 
 function Logements(){
 
 let {id} = useParams();
 
+
     return(<div>
-            {logements.map((item, index) => { 
+            {logements.map((item) => { 
                 if(item.id === id){
                     return <div key={item.id}>
                                 <Slider slide={item.pictures} />
@@ -104,18 +112,26 @@ let {id} = useParams();
                                         <StyleHost>{item.host.name}</StyleHost>
                                         <StyleImg src= {item.host.picture} alt=""></StyleImg>
                                     </StyleDivHost>
-                                    </StylePage>
-                                    <StyleDivTag>
-                                        {item.tags.map((element) =>{
-                                            return <StyleTag>
-                                              {element}
-                                            </StyleTag>
-                                        })}
-                                    </StyleDivTag>
                                     <div>
-                                        <span>{item.rating}</span>
+                                        {function (){
+                                            const range = []
+                                            for(let i = 0; i < parseInt(item.rating); i++){
+                                                i.push(range);
+                                            } 
+                                            const start = range.map(() => {
+                                                return <VscStarFull style = {StyleStarFull} key = {item.rating}/>
+                                            })
+                                            return {start}
+                                        }}                                                                            
                                     </div>
-                                
+                                </StylePage>
+                                <StyleDivTag>
+                                    {item.tags.map((element) =>{
+                                        return <StyleTag>
+                                            {element}
+                                        </StyleTag>
+                                    })}
+                                </StyleDivTag>
                                 <StyleCollapseDiv>
                                     <StyleDivDescription>
                                         <Collapse label="Description">
