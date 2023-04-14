@@ -13,9 +13,9 @@ const SlideChevron  = styled.div`
     justify-contente:space-between;
     top:60%;    
 `
-const styleLeft = {height:"120px", width:"100%", weight:"700", color:"black",position:"relative", top: "-180%", left:"-15%"}
+const styleLeft = {height:"120px", width:"100%", weight:"700", color:"black",position:"relative", top: "-150%", left:"-15%"}
 
-const styleRight = {height:"120px", width:"100%", weight:"700", color:"black", position:"relative", top: "-180%", right:"-15%"}
+const styleRight = {height:"120px", width:"100%", weight:"700", color:"black", position:"relative", top: "-150%", right:"-15%"}
 
 const SlideImgIconDiv = styled.div`
     display:flex;
@@ -30,14 +30,15 @@ const SlideImgDiv = styled.div`
 const SlideImg = styled.img`
     width:86%;
     height:415px;
-    object-fit:cover;   
+    object-fit:cover; 
+    margin-top:2rem;  
 `
 const SpanNumber = styled.span`
     width:100%;
     display:flex;
     justify-content:center;
     position:absolute;
-    top:58%;
+    top:63%;
     color:black;
     font-family: 'Montserrat';
     font-style: normal;
