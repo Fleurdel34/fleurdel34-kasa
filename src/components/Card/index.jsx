@@ -17,6 +17,10 @@ const SectionCard = styled.section`
     padding-bottom:50px;
     
 `
+const LinkCard = styled(Link)`
+    text-decoration:none;
+`
+
 const ArticleCard = styled.article`
     width:340px;
     height:340px;
@@ -37,7 +41,7 @@ const ArticleCard = styled.article`
 const ParagrapheArticle = styled.p`
     inline-size:200px;
     margin-left:20px;
-    text-decoration:none;
+    
 `
 
 function Card(){
@@ -45,11 +49,11 @@ function Card(){
     return(
         <SectionCard>
             {logements.map((item)=>
-                <Link key={item.id} to={`/Logements/${item.id}`}>
+                <LinkCard key={item.id} to={`/Logements/${item.id}`}>
                     <ArticleCard>
                         <ParagrapheArticle >{item.title}</ParagrapheArticle>
                     </ArticleCard>
-                </Link>)}
+                </LinkCard>)}
         </SectionCard>)      
 }
 export default Card

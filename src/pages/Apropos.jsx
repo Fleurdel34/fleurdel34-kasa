@@ -1,6 +1,6 @@
-import styled from "styled-components"
-import kalen from '../components/images/kalen.png'
-import Collapse from "../components/Collapse"
+import styled from "styled-components";
+import kalen from '../components/images/kalen.png';
+import Collapse from "../components/Collapse";
 
 
 const AproposDiv = styled.div`
