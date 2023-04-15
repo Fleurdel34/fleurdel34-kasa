@@ -1,9 +1,10 @@
-import styled from "styled-components"
-import logements from "../datas/logements.json"
+//Creation des Card pour la page Accueil
+
+import styled from "styled-components";
+import logements from "../datas/logements.json";
 import { Link} from "react-router-dom";
 
 
- 
 const SectionCard = styled.section`
     display:grid;
     grid-template-columns: 340px 340px 340px;
@@ -16,7 +17,6 @@ const SectionCard = styled.section`
     margin-left: 14%;
     padding-top:50px;
     padding-bottom:50px;
-    
 `
 const LinkCard = styled(Link)`
     text-decoration:none;
@@ -37,12 +37,10 @@ const ArticleCard = styled.article`
     flex-wrap:wrap;
     align-items: flex-end;
     color: #FFFF;
-    
 `
 const ParagrapheArticle = styled.p`
     inline-size:200px;
     margin-left:20px;
-    
 `
 
 function Card(){
@@ -55,5 +53,5 @@ function Card(){
                     </ArticleCard>
                 </LinkCard>)}
         </SectionCard>)      
-}
-export default Card
+};
+export default Card;

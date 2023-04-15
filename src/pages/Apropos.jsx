@@ -1,7 +1,8 @@
+//construction de la page Apropos
+
 import styled from "styled-components";
 import kalen from '../components/images/kalen.png';
 import Collapse from "../components/Collapse";
-
 
 const AproposDiv = styled.div`
     display:flex;
@@ -18,7 +19,6 @@ const AproposImg = styled.img`
     margin-top:2.5rem;
     margin-bottom:2rem;
 `
-
 function Apropos(){
 
     return (
@@ -38,7 +38,7 @@ function Apropos(){
 
             <Collapse label="Service">
                 <p> Nos équipes se tiennent à votre disposition pour vous fournir une expérience parfaite. 
-                    N'hésitez pas à nous contacter si vous avez la moindre question.</p>
+                N'hésitez pas à nous contacter si vous avez la moindre question.</p>
             </Collapse>
 
             <Collapse label="Sécurité">
@@ -52,6 +52,6 @@ function Apropos(){
         </AproposDiv>
        
     )
-}
+};
 
-export default Apropos
+export default Apropos;

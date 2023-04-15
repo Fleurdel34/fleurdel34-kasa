@@ -1,3 +1,4 @@
+// Création du composant Collapse
 import styled from "styled-components";
 import { useState } from "react";
 import { VscChevronDown } from "react-icons/vsc";
@@ -42,9 +43,9 @@ const style = {
    width: "40px",
     height: "50px", 
     color: "#fff",
-    weigth:"700"}
-    
-    
+    weigth:"700"
+}
+      
 const ParagrapheDiv=styled.div`    
     font-family: 'Montserrat';
     font-style: normal;
@@ -56,24 +57,24 @@ const ParagrapheDiv=styled.div`
 `
 
 function Collapse(props){
-    const [isOpen, setisOpen] = useState(false);
-    const [rotate, setRotate] = useState(false);
+const [isOpen, setisOpen] = useState(false);
+const [rotate, setRotate] = useState(false);
 
-    const handleClick = () => setRotate((prevState) => (!prevState ))
-    return (
-        <CollapseDiv>
-            <CollapseDivArrow>
-                {props.label}
-                <StyleButton rotate={rotate} onClick={handleClick}>
-                    <VscChevronDown style={style} onClick={() => setisOpen(!isOpen)}/>
-                </StyleButton>
-            </CollapseDivArrow> 
-            {isOpen && <ParagrapheDiv>
-                {props.children}
-            </ParagrapheDiv>}
-        </CollapseDiv>
-    )     
-        
-}
-export default Collapse
+const handleClick = () => setRotate((prevState) => (!prevState ));
+
+return (
+    <CollapseDiv>
+        <CollapseDivArrow>
+            {props.label}
+            <StyleButton rotate={rotate} onClick={handleClick}>
+                <VscChevronDown style={style} onClick={() => setisOpen(!isOpen)}/>
+            </StyleButton>
+        </CollapseDivArrow> 
+        {isOpen && <ParagrapheDiv>
+            {props.children}
+        </ParagrapheDiv>}
+    </CollapseDiv>
+)          
+};
+export default Collapse;
 

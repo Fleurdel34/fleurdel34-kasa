@@ -1,23 +1,22 @@
+//construction de la page logements
+
 import styled from "styled-components";
 import Slider from "../components/Slideshow";
 import logements from "../components/datas/logements.json";
 import { useNavigate, useParams } from "react-router-dom";
 import Collapse from "../components/Collapse";
 import { VscStarFull } from "react-icons/vsc";
-import Error from "../components/Error";
+
 
 const StylePage = styled.div`
     display:flex;
     width: 86%;
     margin-top: 1rem;
     margin-left: 7rem;
-
 `
-
 const StyleDivTitle= styled.div`
     width:100%;
 `
-
 const StyleTitle = styled.h1`
     font-family: 'Montserrat';
     font-style: normal;
@@ -40,7 +39,6 @@ const StyleDivTag = styled.div`
     display:flex;
     width:86%;
     margin-left: 7rem;
-   
 `
 const StyleTag = styled.p`
     background: #FF6060;
@@ -57,11 +55,9 @@ const StyleDivStar = styled.div`
     display:flex;
     justify-content:flex-end;
     margin-right:3.5rem;
-
 `
 const StyleDivHost= styled.div`
     display:flex;
-
 `
 const StyleHost = styled.p`
     font-family: 'Montserrat';
@@ -74,8 +70,6 @@ const StyleHost = styled.p`
     height:52px;
     margin-top: 10px;
     margin-bottom: 0;
-  }
-
 `
 const StyleImg = styled.img`
     border-radius:100px;
@@ -84,8 +78,7 @@ const StyleImg = styled.img`
 `
 const StyleStarFull = {color:"#FF6060", width:"24.75px", height:"24px"};
 
-
-const StyleStarEmpty ={ width:"24.75px", height:"24px", color: "grey", border: "grey"}
+const StyleStarEmpty ={ width:"24.75px", height:"24px", color: "grey", border: "grey"};
 
 const StyleCollapseDiv=styled.div`
     width:100%;
@@ -94,11 +87,9 @@ const StyleCollapseDiv=styled.div`
 `
 const StyleDivDescription = styled.div`
     width:50%;
-   
 `
 const StyleDivEquipements = styled.div`
     width:50%;
-   
 `
 
 function Logements(){
@@ -139,8 +130,7 @@ const navigate = useNavigate();
                                             <VscStarFull style = {StyleStarFull} />:
                                             <VscStarFull style = {StyleStarEmpty} />)
                                         })}                                                                                                            
-                                    </StyleDivStar>
-                                    
+                                    </StyleDivStar>  
                                 </StyleDivTag>
                                 <StyleCollapseDiv>
                                     <StyleDivDescription>
@@ -154,12 +144,12 @@ const navigate = useNavigate();
                                         </Collapse>
                                     </StyleDivEquipements>
                                 </StyleCollapseDiv>
-                            </div>}
-                        })}
-            </div>)      
+                            </div>
+                    }})}
+        </div>)      
 }
 
-export default Logements
+export default Logements;
 
 
 

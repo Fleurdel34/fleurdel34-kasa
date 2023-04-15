@@ -1,3 +1,4 @@
+//Creation du composant Footer
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
@@ -5,7 +6,6 @@ const ErrorDiv = styled.div`
     display:flex;
     flex-direction:column;
     align-items:center;
-
 `
 
 const ErrorTitle = styled.h1`
@@ -19,7 +19,6 @@ const ErrorTitle = styled.h1`
 `
 
 const ErrorParagraphe = styled.p`
-
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 500;
@@ -44,11 +43,9 @@ function Error(){
             <ErrorParagraphe>Oups! La page que vous demandez n'existe pas.</ErrorParagraphe>
             <ErrorLink to="/">Retourner sur la page d’accueil</ErrorLink>
         </ErrorDiv>
-
-        
     )
-}
-export default Error
+};
+export default Error;
 
 
 

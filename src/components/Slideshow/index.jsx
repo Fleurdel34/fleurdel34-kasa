@@ -1,3 +1,5 @@
+// Creation du composant Carrousel
+
 import styled from "styled-components";
 import { VscChevronRight } from "react-icons/vsc";
 import { VscChevronLeft } from "react-icons/vsc";
@@ -11,9 +13,9 @@ const SlideChevron  = styled.div`
     justify-contente:space-between;
     top:60%;    
 `
-const styleLeft = {height:"120px", width:"100%", weight:"700", color:"white",position:"relative", top: "-150%", left:"-15%"}
+const styleLeft = {height:"120px", width:"100%", weight:"700", color:"white",position:"relative", top: "-150%", left:"-15%"};
 
-const styleRight = {height:"120px", width:"100%", weight:"700", color:"white", position:"relative", top: "-150%", right:"-15%"}
+const styleRight = {height:"120px", width:"100%", weight:"700", color:"white", position:"relative", top: "-150%", right:"-15%"};
 
 const SlideImgIconDiv = styled.div`
     display:flex;
@@ -55,13 +57,13 @@ const prevSlide = () =>{
     const isFirstSlide = currentIndex === 0;
     const newIndex = isFirstSlide ? slide.length -1 : currentIndex -1;
     setCurrentIndex(newIndex)
-}
+};
+
 const nextSlide = () =>{
     const isLastSlide = currentIndex === slide.length -1;
     const newIndex = isLastSlide ? 0 : currentIndex+1;
     setCurrentIndex(newIndex)
-
-}
+};
    
 return (
         <div>
@@ -77,6 +79,6 @@ return (
             </SlideImgIconDiv>
         </div>)
 
-}
-export default Slider
+};
+export default Slider;
 

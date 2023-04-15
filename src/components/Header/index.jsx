@@ -1,25 +1,22 @@
+// creation du composant Header
 import { Link } from "react-router-dom";
 import LOGO1 from '../images/LOGO1.png';
-import styled from "styled-components"
+import styled from "styled-components";
 
 const HeaderDiv = styled.div`
     display:flex;
     justify-content:space-between;
     margin-top:2rem;
-   margin-left:7%;
-    
+   margin-left:7%;   
 `
-
 const LinkDiv = styled.div`
     width:25%;
     display:flex;
     justify-content:flex-start;
     align-self:center;
     text-align: right;
-    margin-right:1%;
-    
+    margin-right:1%;  
 `
-
 const LinkStyle = styled(Link)`
     display:flex;
     justify-content:flex-start;
@@ -33,10 +30,8 @@ const LinkStyle = styled(Link)`
     &:hover{
         cursor: pointer;
         text-decoration:underline;
-    }
-    
+    }  
 `
-
 
 function Header(){
     return(
@@ -50,5 +45,5 @@ function Header(){
             </LinkDiv>
     </HeaderDiv>
     )
-}
-export default Header
+};
+export default Header;

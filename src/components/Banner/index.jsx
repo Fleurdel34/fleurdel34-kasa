@@ -1,5 +1,6 @@
-import styled from "styled-components"
-import Home from '../images/Home.png'
+//Creation du composant banner
+import styled from "styled-components";
+import Home from '../images/Home.png';
 
 const BannerDiv = styled.div`
     display:flex;
@@ -15,8 +16,7 @@ const BannerImg = styled.img`
     height:29%;
     border-radius:25px;
     filter: brightness(0.65);
-    -webkit-filter: brightness(0.65);
-    
+    -webkit-filter: brightness(0.65); 
 `
 const BannerTitle = styled.h1`
     position:relative;
@@ -35,5 +35,5 @@ function Banner(){
             <BannerTitle>Chez vous, partout et ailleurs</BannerTitle>
         </BannerDiv>
     )
-}
-export default Banner
+};
+export default Banner;

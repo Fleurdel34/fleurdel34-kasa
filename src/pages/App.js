@@ -1,6 +1,7 @@
-import Banner from "../components/Banner"
-import Card from "../components/Card"
+//construction de la page d'accueil
 
+import Banner from "../components/Banner";
+import Card from "../components/Card";
 
 function Home (){
 
@@ -10,5 +11,5 @@ function Home (){
         <Card />     
       </div>  
   )
-}
-export default Home
+};
+export default Home;
