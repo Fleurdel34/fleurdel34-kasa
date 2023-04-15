@@ -5,6 +5,9 @@ import { useParams } from "react-router-dom";
 import Collapse from "../components/Collapse";
 import { VscStarFull } from "react-icons/vsc";
 
+
+
+
 const StylePage = styled.div`
     display:flex;
     width: 86%;
@@ -51,6 +54,13 @@ const StyleTag = styled.p`
     margin-bottom:1.5rem;
     margin-right:7px;
 `
+const StyleDivStar = styled.div`
+    width:85%;
+    display:flex;
+    justify-content:flex-end;
+    margin-right:3.5rem;
+
+`
 const StyleDivHost= styled.div`
     display:flex;
 
@@ -77,7 +87,7 @@ const StyleImg = styled.img`
 const StyleStarFull = {color:"#FF6060", width:"24.75px", height:"24px"};
 
 
-//const StyleStarEmpty ={ width:"24.75px", height:"24px", color: "grey", border: "grey"}
+const StyleStarEmpty ={ width:"24.75px", height:"24px", color: "grey", border: "grey"}
 
 const StyleCollapseDiv=styled.div`
     width:100%;
@@ -96,13 +106,13 @@ const StyleDivEquipements = styled.div`
 function Logements(){
 
 let {id} = useParams();
-
+const range = [1,2,3,4,5];
 
     return(<div>
             {logements.map((item) => { 
-                if(item.id === id){
-                    return <div key={item.id}>
-                                <Slider slide={item.pictures} />
+                    if(item.id === id){
+                        return <div key={item.id}>
+                            <Slider slide={item.pictures} />
                                 <StylePage>
                                     <StyleDivTitle>
                                         <StyleTitle>{item.title}</StyleTitle>
@@ -112,18 +122,6 @@ let {id} = useParams();
                                         <StyleHost>{item.host.name}</StyleHost>
                                         <StyleImg src= {item.host.picture} alt=""></StyleImg>
                                     </StyleDivHost>
-                                    <div>
-                                        {function (){
-                                            const range = []
-                                            for(let i = 0; i < parseInt(item.rating); i++){
-                                                i.push(range);
-                                            } 
-                                            const start = range.map(() => {
-                                                return <VscStarFull style = {StyleStarFull} key = {item.rating}/>
-                                            })
-                                            return {start}
-                                        }}                                                                            
-                                    </div>
                                 </StylePage>
                                 <StyleDivTag>
                                     {item.tags.map((element) =>{
@@ -131,6 +129,14 @@ let {id} = useParams();
                                             {element}
                                         </StyleTag>
                                     })}
+                                    <StyleDivStar  key ={item.rating}>
+                                        {range.map((start) => {
+                                           return (parseInt(item.rating) >= start?
+                                            <VscStarFull style = {StyleStarFull} />:
+                                            <VscStarFull style = {StyleStarEmpty} />)
+                                        })}                                                                                                            
+                                    </StyleDivStar>
+                                    
                                 </StyleDivTag>
                                 <StyleCollapseDiv>
                                     <StyleDivDescription>
@@ -144,10 +150,9 @@ let {id} = useParams();
                                         </Collapse>
                                     </StyleDivEquipements>
                                 </StyleCollapseDiv>
-                               
-                                
-                            </div>}})}
-            </div>)       
+                            </div>}
+                        })}
+            </div>)      
 }
 
 export default Logements

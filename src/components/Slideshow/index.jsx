@@ -73,7 +73,7 @@ return (
                 <VscChevronRight style ={styleRight} onClick={nextSlide} />
             </SlideChevron>
             <SlideImgIconDiv style={{visibility:slide.length -1 === 0 ? 'hidden': 'visible'}}>
-                <SpanNumber>{currentIndex}/{props.slide.length}</SpanNumber>
+                <SpanNumber>{currentIndex+1}/{props.slide.length}</SpanNumber>
             </SlideImgIconDiv>
         </div>)
 
