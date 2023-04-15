@@ -3,7 +3,7 @@
 import styled from "styled-components";
 import Slider from "../components/Slideshow";
 import logements from "../components/datas/logements.json";
-import { useNavigate, useParams } from "react-router-dom";
+import { Navigate, useParams } from "react-router-dom";
 import Collapse from "../components/Collapse";
 import { VscStarFull } from "react-icons/vsc";
 
@@ -95,15 +95,10 @@ const StyleDivEquipements = styled.div`
 function Logements(){
 
 let {id} = useParams();
+
 const range = [1,2,3,4,5];
-const navigate = useNavigate();
 
     return(<div>
-            <div>
-            {logements.map((item) => { 
-                if(id !== item.id){
-                    return navigate("../components/Error")}})}
-            </div>
             {logements.map((item) => { 
                     if(item.id === id){
                         return <div key={item.id}>
@@ -145,7 +140,9 @@ const navigate = useNavigate();
                                     </StyleDivEquipements>
                                 </StyleCollapseDiv>
                             </div>
-                    }})}
+                    }
+                    else{<Navigate to="/Error" replace={true} />}
+                    })}
         </div>)      
 }
 

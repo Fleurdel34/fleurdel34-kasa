@@ -2,8 +2,7 @@
 
 import styled from "styled-components";
 import logements from "../datas/logements.json";
-import { Link} from "react-router-dom";
-
+import { Link } from "react-router-dom";
 
 const SectionCard = styled.section`
     display:grid;
@@ -44,9 +43,10 @@ const ParagrapheArticle = styled.p`
 `
 
 function Card(){
+
     return(
         <SectionCard>
-            {logements.map((item)=> 
+            {logements.map((item)=>
                 <LinkCard key={item.id} to={`/Logements/${item.id}`}>
                     <ArticleCard>
                         <ParagrapheArticle >{item.title}</ParagrapheArticle>
