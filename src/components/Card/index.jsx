@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 const SectionCard = styled.section`
     display:grid;
     grid-template-columns: 340px 340px 340px;
-    gap: 50px 60px;
+    gap: 25px 60px;
     fontfamily:Montserrat;
     fontweight:500;
     fontsize:18px;
@@ -16,6 +16,12 @@ const SectionCard = styled.section`
     margin-left: 14%;
     padding-top:50px;
     padding-bottom:50px;
+    @media (max-width: 768px){
+        margin-left: 6%;
+        padding-top:25px;
+        border-radius:10px;
+        padding-bottom:25px;
+    }  
 `
 const LinkCard = styled(Link)`
     text-decoration:none;
@@ -36,6 +42,10 @@ const ArticleCard = styled.article`
     flex-wrap:wrap;
     align-items: flex-end;
     color: #FFFF;
+    @media (max-width: 768px){
+        width: 98%;
+        font-size:18px;
+    }  
 `
 const ParagrapheArticle = styled.p`
     inline-size:200px;

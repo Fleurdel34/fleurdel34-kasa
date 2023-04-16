@@ -26,6 +26,11 @@ const CollapseDivArrow=styled.div`
     color: #FFFFFF;
     padding-left:10px;
     padding-top:10px;
+    @media (max-width: 768px){
+        font-size: 13px;
+        height:30px;
+        width:84%;
+    }  
 `
 const StyleButton = styled.button`
         width:40px;
@@ -38,10 +43,13 @@ const StyleButton = styled.button`
         overflow: hidden;
         transition: all 0.3s ease-out;
         ${({ rotate }) => rotate && `transform: rotate(180deg)`};
+        @media (max-width: 768px){
+            margin-right:0;
+        }  
 `
 const style = {
    width: "40px",
-    height: "50px", 
+    height: "16px", 
     color: "#fff",
     weigth:"700"
 }

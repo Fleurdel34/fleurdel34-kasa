@@ -21,6 +21,9 @@ const SlideImgIconDiv = styled.div`
     display:flex;
     flex-direction:column;
     width:100%;
+    @media (max-width: 768px){
+        width:30%;
+    }   
 `
 const SlideImgDiv = styled.div`
     width:100%;
@@ -31,7 +34,15 @@ const SlideImg = styled.img`
     width:86%;
     height:415px;
     object-fit:cover; 
-    margin-top:2rem;  
+    margin-top:2rem;
+    border-radius:25px;
+    @media (max-width: 768px){
+        border-radius:10px;
+        width:87%;
+        height:255px;
+        margin-top:1rem;
+        border-radius:10px;
+    }    
 `
 const SpanNumber = styled.span`
     width:100%;
@@ -45,6 +56,10 @@ const SpanNumber = styled.span`
     font-weight: 500;
     font-size: 24px;
     line-height: 142.6%;
+    @media (max-width: 768px){
+        display:none;
+    }  
+    
 `
 
 function Slider(props){

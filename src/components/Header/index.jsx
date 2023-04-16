@@ -7,7 +7,16 @@ const HeaderDiv = styled.div`
     display:flex;
     justify-content:space-between;
     margin-top:2rem;
-   margin-left:7%;   
+    margin-left:7%;
+    @media (max-width: 768px){
+        margin-top:1rem;
+    }
+       
+`
+const LogoImg = styled.img`
+    @media (max-width: 768px){
+        width:39%;
+    }
 `
 const LinkDiv = styled.div`
     width:25%;
@@ -15,7 +24,11 @@ const LinkDiv = styled.div`
     justify-content:flex-start;
     align-self:center;
     text-align: right;
-    margin-right:1%;  
+    margin-right:1%;
+    @media (max-width: 768px){
+        width: 45%;
+    }   
+
 `
 const LinkStyle = styled(Link)`
     display:flex;
@@ -30,14 +43,17 @@ const LinkStyle = styled(Link)`
     &:hover{
         cursor: pointer;
         text-decoration:underline;
-    }  
+    } 
+    @media (max-width: 768px){
+        font-size:16px;
+    } 
 `
 
 function Header(){
     return(
         <HeaderDiv>
            
-            <img src= {LOGO1} alt="Logo"/>
+            <LogoImg src= {LOGO1} alt="Logo"/>
     
             <LinkDiv>
                 <LinkStyle to="/">Accueil</LinkStyle>

@@ -8,9 +8,16 @@ const FooterDiv = styled.div`
     justify-content:space-around;
     height:209px;
     text-align:center;
+    @media (max-width: 768px){
+        height:245px;        
+    } 
 `
 const FooterImg = styled.img`
      margin-top:4rem;
+    @media (max-width: 768px){
+        height:37px;
+        margin-top:6rem;        
+    } 
 `
 const FooterParagraph = styled.p`
     color:#fff;
@@ -18,6 +25,10 @@ const FooterParagraph = styled.p`
     font-style: normal;
     font-weight: 500;
     font-size: 16px;
+    @media (max-width: 768px){
+        font-size: 12px;
+        margin-top:2rem;        
+    } 
 `
 
 function Footer(){

@@ -8,6 +8,13 @@ const BannerDiv = styled.div`
     align-items:center;
     margin-top:5rem;
     margin-bottom:5rem;
+    @media (max-width: 768px){
+        margin-top:1rem;
+        height:111px;
+        flex-wrap:wrap;
+        margin-bottom:0;
+    }  
+
 `
 const BannerImg = styled.img`
     position:absolute;
@@ -16,7 +23,12 @@ const BannerImg = styled.img`
     height:29%;
     border-radius:25px;
     filter: brightness(0.65);
-    -webkit-filter: brightness(0.65); 
+    -webkit-filter: brightness(0.65);
+    @media (max-width: 768px){
+        height:111px;
+        border-radius:10px;
+        width:89%;
+    }   
 `
 const BannerTitle = styled.h1`
     position:relative;
@@ -25,7 +37,15 @@ const BannerTitle = styled.h1`
     font-family:Montserrat;
     font-weight:500;
     font-style:normal;
-    line-height:68px;       
+    line-height:68px; 
+    @media (max-width: 768px){
+       font-size:24px;
+       width:45%;
+       height:60px;
+       line-height:20px;
+       right:18%;
+       top:10%;
+    }         
 `
 
 function Banner(){

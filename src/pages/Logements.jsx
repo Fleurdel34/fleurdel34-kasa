@@ -12,6 +12,11 @@ const StylePage = styled.div`
     width: 86%;
     margin-top: 1rem;
     margin-left: 7rem;
+    @media (max-width: 768px){
+        margin-left: 1.5rem;
+        flex-direction:column;
+    } 
+    
 `
 const StyleDivTitle= styled.div`
     width:100%;
@@ -24,6 +29,9 @@ const StyleTitle = styled.h1`
     line-height: 142.6%;
     color: #FF6060;
     margin:0;
+    @media (max-width: 768px){
+        font-size: 18px;
+    } 
 `
 const StyleLocation = styled.p`
     font-family: 'Montserrat';
@@ -33,6 +41,9 @@ const StyleLocation = styled.p`
     line-height: 142.6%;
     color: #FF6060;
     margin:0;
+    @media (max-width: 768px){
+        font-size: 14px;
+    } 
 `
 const StyleDivTag = styled.div`
     display:flex;
