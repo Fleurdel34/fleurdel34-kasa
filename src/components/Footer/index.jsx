@@ -13,7 +13,7 @@ const FooterDiv = styled.div`
     } 
 `
 const FooterImg = styled.img`
-     margin-top:4rem;
+    margin-top:4rem;
     @media (max-width: 768px){
         height:37px;
         margin-top:6rem;        

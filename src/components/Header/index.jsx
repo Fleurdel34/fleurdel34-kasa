@@ -49,9 +49,7 @@ const LinkStyle = styled(Link)`
 function Header(){
     return(
         <HeaderDiv>
-           
             <LogoImg src= {LOGO1} alt="Logo"/>
-    
             <LinkDiv>
                 <LinkStyle to="/">Accueil</LinkStyle>
                 <LinkStyle to="/apropos">A propos</LinkStyle>

@@ -7,13 +7,13 @@ import { useNavigate, useParams } from "react-router-dom";
 import Collapse from "../components/Collapse";
 import { VscStarFull } from "react-icons/vsc";
 import { useEffect } from "react";
+import"../styles/Logements.css";
 
 const StylePage = styled.div`
     display:flex;
     width: 86%;
     justify-content:center;
-    margin-top: 1rem;
-    margin:auto;
+    margin:1rem auto auto;
     @media (max-width: 768px){
         flex-direction:column;
     }    
@@ -58,6 +58,7 @@ const StyleDivTag = styled.div`
     @media (max-width: 768px){
         flex-wrap:wrap;
         margin-left: 0rem;
+        margin:auto;
     } 
 `
 const StyleTag = styled.p`
@@ -97,8 +98,7 @@ const StyleDivHost= styled.div`
     @media (max-width: 768px){
         justify-content:flex-end;
         position: absolute;
-        left: 70%;
-        top: 60%;
+        transform: translate(180%, 90px);
     } 
 `
 const StyleHost = styled.p`
@@ -128,10 +128,6 @@ const StyleImg = styled.img`
         margin-top:0.8rem;
     } 
 `
-const StyleStarFull = {color:"#FF6060", width:"24.75px", height:"24px"}; 
-
-const StyleStarEmpty ={width:"24.75px", height:"24px", color: "grey", border: "grey"};
-
 const StyleCollapseDiv=styled.div`
     width:100%;
     display:flex;
@@ -159,7 +155,6 @@ const StyleDivEquipements = styled.div`
         width:100%;
         border-radius: 5px;
     } 
-
 `
 
 function Logements(){
@@ -203,8 +198,8 @@ return(<div>
                         <StyleDivStar >
                             {range.map((start) => {
                                 return (parseInt(LogementFind.rating) >= start?
-                                <VscStarFull style = {StyleStarFull} />:
-                                <VscStarFull style = {StyleStarEmpty} />)
+                                <VscStarFull className="iconFull" />:
+                                <VscStarFull className="iconEmpty" />)
                             })}                                                                                                            
                         </StyleDivStar>  
                     </StyleDivTag>

@@ -33,21 +33,21 @@ const CollapseDivArrow=styled.div`
     }     
 `
 const StyleButton = styled.button`
-        width:40px;
-        border:none;
-        background-color:#FF6060;
-        margin-right:1rem;
-        margin-bottom:0.3rem;
-        transform-origin:center center;
-        transform: rotate(0deg);
-        overflow: hidden;
-        transition: all 0.3s ease-out;
-        ${({ rotate }) => rotate && `transform: rotate(180deg)`};
-        @media (max-width: 768px){
-            margin-right:0.6rem;
-            margin-bottom:0.5rem;
-            width:30px;
-        } 
+    width:40px;
+    border:none;
+    background-color:#FF6060;
+    margin-right:1rem;
+    margin-bottom:0.3rem;
+    transform-origin:center center;
+    transform: rotate(0deg);
+    overflow: hidden;
+    transition: all 0.3s ease-out;
+    ${({ rotate }) => rotate && `transform: rotate(180deg)`};
+    @media (max-width: 768px){
+        margin-right:0.6rem;
+        margin-bottom:0.5rem;
+        width:30px;
+    } 
 `
 const style = {
    width: "40px",

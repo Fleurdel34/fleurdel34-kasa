@@ -14,7 +14,6 @@ const BannerDiv = styled.div`
         flex-wrap:wrap;
         margin-bottom:0;
     }  
-
 `
 const BannerImg = styled.img`
     position:absolute;

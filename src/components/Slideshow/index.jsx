@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { VscChevronRight } from "react-icons/vsc";
 import { VscChevronLeft } from "react-icons/vsc";
 import { useState } from "react";
+import "./Slideshow.css";
 
 const SlideChevron  = styled.div`
     height:120px;
@@ -11,12 +12,11 @@ const SlideChevron  = styled.div`
     position:absolute;
     display:flex;
     justify-contente:space-between;
-    top:60%;    
+    transform:translateY(-200%);
+    @media (max-width:768px){
+        transform:translateY(-125%);
+    };
 `
-const styleLeft = {height:"120px", width:"100%", weight:"700", color:"white",position:"relative", top: "-150%", left:"-15%"};
-
-const styleRight = {height:"120px", width:"100%", weight:"700", color:"white", position:"relative", top: "-150%", right:"-15%"};
-
 const SlideImgIconDiv = styled.div`
     display:flex;
     flex-direction:column;
@@ -85,8 +85,8 @@ return (
                 <SlideImg src={slide[currentIndex]} alt =""></SlideImg>
             </SlideImgDiv>
             <SlideChevron style={{ visibility:slide.length -1 === 0 ? 'hidden': 'visible'}}>
-                <VscChevronLeft style = {styleLeft}  onClick={prevSlide}/>
-                <VscChevronRight style ={styleRight} onClick={nextSlide} />
+                <VscChevronLeft className="styleLeft" onClick={prevSlide} />   
+                <VscChevronRight className="styleRight" onClick={nextSlide} />
             </SlideChevron>
             <SlideImgIconDiv style={{visibility:slide.length -1 === 0 ? 'hidden': 'visible'}}>
                 <SpanNumber>{currentIndex+1}/{props.slide.length}</SpanNumber>

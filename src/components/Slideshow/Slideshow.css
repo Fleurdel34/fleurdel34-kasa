@@ -1,0 +1,27 @@
+.styleLeft {
+    height:80px; 
+    width:100%; 
+    font-weight:700;
+    color:white; 
+    position:relative;
+    transform:translateX(-30%)
+}
+
+.styleRight {
+    height:80px; 
+    width:100%; 
+    font-weight:700; 
+    color:white; 
+    position:relative; 
+    transform:translateX(30%)
+}
+
+@media (max-width:768px){
+    .styleLeft{
+        height:40px;
+    }
+
+    .styleRight{
+        height:40px;
+    }
+};
