@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 const SectionCard = styled.section`
     display:grid;
-    grid-template-columns: 340px 340px 340px;
+    grid-template-columns: 340px 340px 340px ;
     gap: 25px 60px;
     fontfamily:Montserrat;
     fontweight:500;
@@ -20,10 +20,11 @@ const SectionCard = styled.section`
         padding-top:25px;
         border-radius:10px;
         padding-bottom:25px;
+        grid-template-columns:340px;
        
     }
     @media (max-width: 992px){
-        grid-template-columns: 340px 340px;
+        
     }    
 `
 const LinkCard = styled(Link)`
