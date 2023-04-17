@@ -48,11 +48,13 @@ const StyleLocation = styled.p`
 const StyleDivParagraphe = styled.div`
     display:flex;
     justify-content:center;
-    width:20%;
+    
 `
 const StyleDivTag = styled.div`
     display:flex;
-    width:100%;    
+    justify-center:center;
+    width:86%;
+    margin:auto;    
     @media (max-width: 768px){
         flex-wrap:wrap;
         margin-left: 0rem;
@@ -76,10 +78,9 @@ const StyleTag = styled.p`
     } 
 `
 const StyleDivStar = styled.div`
-    width:63%;
+    width:100%;
     display:flex;
     justify-content:flex-end;
-    margin-right:3.5rem;
     @media (max-width: 768px){
         margin-right:0;
         justify-content:flex-start;
