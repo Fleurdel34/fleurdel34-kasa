@@ -95,6 +95,7 @@ const StyleDivHost= styled.div`
     display:flex;
     width: 30%;
     justify-content: flex-end;
+    margin-bottom:15px;
     @media (max-width: 768px){
         justify-content:flex-end;
         position: absolute;
