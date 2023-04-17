@@ -21,7 +21,7 @@ root.render(
       <Routes>
         <Route exact path='/' element={ <App /> }></Route>
         <Route path='/apropos' element={ <Apropos /> }></Route>
-        <Route path='/Logements/:id' element={ <Logements /> }></Route>
+        <Route path='/logements/:id' element={ <Logements /> }></Route>
         <Route path='*' element={ <Error /> }></Route>
       </Routes>
       <Footer />

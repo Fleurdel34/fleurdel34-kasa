@@ -8,6 +8,7 @@ const HeaderDiv = styled.div`
     justify-content:space-between;
     margin-top:2rem;
     margin-left:7%;
+    width:86%;
     @media (max-width: 768px){
         margin-top:1rem;
         margin-left:6.5%;
@@ -19,21 +20,16 @@ const LogoImg = styled.img`
     }
 `
 const LinkDiv = styled.div`
-    width:25%;
+    width:50%;
     display:flex;
-    justify-content:flex-start;
+    justify-content:flex-end;
     align-self:center;
     text-align: right;
-    margin-right:1%;
-    @media (max-width: 768px){
-        width: 45%;
-        margin-right:0;
-    }   
-
+    max-width:480px;   
 `
 const LinkStyle = styled(Link)`
     display:flex;
-    justify-content:flex-start;
+    justify-content:flex-end;
     color:#ff6060;
     width:50%;
     font-size:24px;

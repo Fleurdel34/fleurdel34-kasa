@@ -21,11 +21,10 @@ const SectionCard = styled.section`
         border-radius:10px;
         padding-bottom:25px;
         grid-template-columns:340px;
-       
-    }
-    @media (max-width: 992px){
-        
-    }    
+    } 
+    @media (min-width: 769px) and (max-width: 1200px){
+        grid-template-columns:340px 340px;
+    }      
 `
 const LinkCard = styled(Link)`
     text-decoration:none;
@@ -61,7 +60,7 @@ function Card(){
     return(
         <SectionCard>
             {logements.map((item)=>
-                <LinkCard key={item.id} to={`/Logements/${item.id}`}>
+                <LinkCard key={item.id} to={`/logements/${item.id}`}>
                     <ArticleCard>
                         <ParagrapheArticle >{item.title}</ParagrapheArticle>
                     </ArticleCard>

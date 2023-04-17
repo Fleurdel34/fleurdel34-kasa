@@ -17,8 +17,6 @@ const styleLeft = {height:"120px", width:"100%", weight:"700", color:"white",pos
 
 const styleRight = {height:"120px", width:"100%", weight:"700", color:"white", position:"relative", top: "-150%", right:"-15%"};
 
-const media = {'@media (max-width: 650px)':{height:"20px", position:"relative", top: "-200%", left:"-15%"}}
-
 const SlideImgIconDiv = styled.div`
     display:flex;
     flex-direction:column;

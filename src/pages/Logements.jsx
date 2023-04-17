@@ -6,17 +6,16 @@ import logements from "../components/datas/logements.json";
 import { useNavigate, useParams } from "react-router-dom";
 import Collapse from "../components/Collapse";
 import { VscStarFull } from "react-icons/vsc";
+import { useEffect } from "react";
 
 const StylePage = styled.div`
     display:flex;
     width: 86%;
+    justify-content:center;
     margin-top: 1rem;
-    margin-left: 7rem;
+    margin:auto;
     @media (max-width: 768px){
         flex-direction:column;
-    }
-    @media (max-width: 992px){
-        margin-left: 4.5rem;
     }    
 `
 const StyleDivTitle= styled.div`
@@ -46,17 +45,18 @@ const StyleLocation = styled.p`
         font-size: 14px;
     } 
 `
+const StyleDivParagraphe = styled.div`
+    display:flex;
+    justify-content:center;
+    width:20%;
+`
 const StyleDivTag = styled.div`
     display:flex;
-    width:86%;
-    margin-left: 7rem;
+    width:100%;    
     @media (max-width: 768px){
         flex-wrap:wrap;
         margin-left: 0rem;
-    }
-    @media (max-width: 992px){
-        margin-left: 4.5rem;
-    }  
+    } 
 `
 const StyleTag = styled.p`
     background: #FF6060;
@@ -76,7 +76,7 @@ const StyleTag = styled.p`
     } 
 `
 const StyleDivStar = styled.div`
-    width:85%;
+    width:63%;
     display:flex;
     justify-content:flex-end;
     margin-right:3.5rem;
@@ -91,6 +91,8 @@ const StyleDivStar = styled.div`
 `
 const StyleDivHost= styled.div`
     display:flex;
+    width: 30%;
+    justify-content: flex-end;
     @media (max-width: 768px){
         justify-content:flex-end;
         position: absolute;
@@ -167,49 +169,57 @@ const range = [1,2,3,4,5];
 
 const navigate = useNavigate();
 
-    return(<div>
-            {logements.map((item) => { 
-                    if(item.id === id){
-                        return <div key={item.id}>
-                            <Slider slide={item.pictures} />
-                                <StylePage>
-                                    <StyleDivTitle>
-                                        <StyleTitle>{item.title}</StyleTitle>
-                                        <StyleLocation>{item.location}</StyleLocation>
-                                    </StyleDivTitle>
-                                    <StyleDivHost key={item.host}>
-                                        <StyleHost>{item.host.name}</StyleHost>
-                                        <StyleImg src= {item.host.picture} alt=""></StyleImg>
-                                    </StyleDivHost>
-                                </StylePage>
-                                <StyleDivTag>
-                                    {item.tags.map((element) =>{
-                                        return <StyleTag>
-                                            {element}
-                                        </StyleTag>
-                                    })}
-                                    <StyleDivStar >
-                                        {range.map((start) => {
-                                           return (parseInt(item.rating) >= start?
-                                            <VscStarFull style = {StyleStarFull} />:
-                                            <VscStarFull style = {StyleStarEmpty} />)
-                                        })}                                                                                                            
-                                    </StyleDivStar>  
-                                </StyleDivTag>
-                                <StyleCollapseDiv>
-                                    <StyleDivDescription>
-                                        <Collapse label="Description">
-                                            <LogementParagraphe>{item.description}</LogementParagraphe>
-                                        </Collapse>
-                                    </StyleDivDescription>
-                                    <StyleDivEquipements>
-                                        <Collapse label="Équipements">
-                                            <LogementParagraphe>{item.equipments}</LogementParagraphe>
-                                        </Collapse>
-                                    </StyleDivEquipements>
-                                </StyleCollapseDiv>
-                            </div>
-                    }else{ return navigate("../components/Error")}})}
+const LogementFind = logements.find(logement =>
+    logement.id === id);
+
+useEffect(() =>{
+    if (LogementFind === undefined){
+        navigate("/Error");
+    }
+})
+
+return(<div>
+            <div key={LogementFind.id}>
+                <Slider slide={LogementFind.pictures} />
+                    <StylePage>
+                        <StyleDivTitle>
+                            <StyleTitle>{LogementFind.title}</StyleTitle>
+                            <StyleLocation>{LogementFind.location}</StyleLocation>
+                        </StyleDivTitle>
+                        <StyleDivHost key={LogementFind.host}>
+                            <StyleHost>{LogementFind.host.name}</StyleHost>
+                            <StyleImg src= {LogementFind.host.picture} alt=""></StyleImg>
+                        </StyleDivHost>
+                    </StylePage>
+                    <StyleDivTag>
+                        <StyleDivParagraphe>
+                            {LogementFind.tags.map((element) =>{
+                                return <StyleTag>
+                                    {element}
+                                </StyleTag>
+                            })}
+                        </StyleDivParagraphe>
+                        <StyleDivStar >
+                            {range.map((start) => {
+                                return (parseInt(LogementFind.rating) >= start?
+                                <VscStarFull style = {StyleStarFull} />:
+                                <VscStarFull style = {StyleStarEmpty} />)
+                            })}                                                                                                            
+                        </StyleDivStar>  
+                    </StyleDivTag>
+                    <StyleCollapseDiv>
+                        <StyleDivDescription>
+                            <Collapse label="Description">
+                                <LogementParagraphe>{LogementFind.description}</LogementParagraphe>
+                            </Collapse>
+                        </StyleDivDescription>
+                        <StyleDivEquipements>
+                            <Collapse label="Équipements">
+                                <LogementParagraphe>{LogementFind.equipments}</LogementParagraphe>
+                            </Collapse>
+                        </StyleDivEquipements>
+                    </StyleCollapseDiv>
+            </div>         
         </div>)      
 }
 
