@@ -30,7 +30,7 @@ const CollapseDivArrow=styled.div`
         font-size: 13px;
         height:30px;
         width:84%;
-    }  
+    }     
 `
 const StyleButton = styled.button`
         width:40px;
@@ -44,12 +44,14 @@ const StyleButton = styled.button`
         transition: all 0.3s ease-out;
         ${({ rotate }) => rotate && `transform: rotate(180deg)`};
         @media (max-width: 768px){
-            margin-right:0;
-        }  
+            margin-right:0.6rem;
+            margin-bottom:0.5rem;
+            width:30px;
+        } 
 `
 const style = {
    width: "40px",
-    height: "16px", 
+    height: "20px", 
     color: "#fff",
     weigth:"700"
 }

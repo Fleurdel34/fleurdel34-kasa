@@ -13,15 +13,18 @@ const SectionCard = styled.section`
     fontsize:18px;
     background: #F7F7F7;
     border-radius: 25px;
-    margin-left: 14%;
     padding-top:50px;
     padding-bottom:50px;
+    justify-content:center;
     @media (max-width: 768px){
-        margin-left: 6%;
         padding-top:25px;
         border-radius:10px;
         padding-bottom:25px;
-    }  
+       
+    }
+    @media (max-width: 992px){
+        grid-template-columns: 340px 340px;
+    }    
 `
 const LinkCard = styled(Link)`
     text-decoration:none;

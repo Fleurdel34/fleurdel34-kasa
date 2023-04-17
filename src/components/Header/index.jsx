@@ -10,8 +10,8 @@ const HeaderDiv = styled.div`
     margin-left:7%;
     @media (max-width: 768px){
         margin-top:1rem;
-    }
-       
+        margin-left:6.5%;
+    }       
 `
 const LogoImg = styled.img`
     @media (max-width: 768px){
@@ -27,6 +27,7 @@ const LinkDiv = styled.div`
     margin-right:1%;
     @media (max-width: 768px){
         width: 45%;
+        margin-right:0;
     }   
 
 `

@@ -13,10 +13,11 @@ const StylePage = styled.div`
     margin-top: 1rem;
     margin-left: 7rem;
     @media (max-width: 768px){
-        margin-left: 1.5rem;
         flex-direction:column;
-    } 
-    
+    }
+    @media (max-width: 992px){
+        margin-left: 4.5rem;
+    }    
 `
 const StyleDivTitle= styled.div`
     width:100%;
@@ -49,6 +50,13 @@ const StyleDivTag = styled.div`
     display:flex;
     width:86%;
     margin-left: 7rem;
+    @media (max-width: 768px){
+        flex-wrap:wrap;
+        margin-left: 0rem;
+    }
+    @media (max-width: 992px){
+        margin-left: 4.5rem;
+    }  
 `
 const StyleTag = styled.p`
     background: #FF6060;
@@ -59,15 +67,36 @@ const StyleTag = styled.p`
     text-align:center;
     margin-bottom:1.5rem;
     margin-right:7px;
+    @media (max-width: 768px){
+        font-size: 10px;
+        border-radius: 5px;
+        width:84px;
+        height:18px;
+        padding-top: 1px;
+    } 
 `
 const StyleDivStar = styled.div`
     width:85%;
     display:flex;
     justify-content:flex-end;
     margin-right:3.5rem;
+    @media (max-width: 768px){
+        margin-right:0;
+        justify-content:flex-start;
+        margin-bottom:1.5rem;
+    }
+    @media (max-width: 992px){
+        margin-right:0;
+    }  
 `
 const StyleDivHost= styled.div`
     display:flex;
+    @media (max-width: 768px){
+        justify-content:flex-end;
+        position: absolute;
+        left: 70%;
+        top: 60%;
+    } 
 `
 const StyleHost = styled.p`
     font-family: 'Montserrat';
@@ -80,26 +109,54 @@ const StyleHost = styled.p`
     height:52px;
     margin-top: 10px;
     margin-bottom: 0;
+    @media (max-width: 768px){
+        font-size:12px;
+        height:33px;
+        width:48px;
+    } 
 `
 const StyleImg = styled.img`
     border-radius:100px;
     width:64px;
-    height:64px
+    height:64px;
+    @media (max-width: 768px){
+        width:32px;
+        height:32px;
+        margin-top:0.8rem;
+    } 
 `
-const StyleStarFull = {color:"#FF6060", width:"24.75px", height:"24px"};
+const StyleStarFull = {color:"#FF6060", width:"24.75px", height:"24px"}; 
 
-const StyleStarEmpty ={ width:"24.75px", height:"24px", color: "grey", border: "grey"};
+const StyleStarEmpty ={width:"24.75px", height:"24px", color: "grey", border: "grey"};
 
 const StyleCollapseDiv=styled.div`
     width:100%;
     display:flex;
     margin-bottom:5rem;
+    @media (max-width: 768px){
+        flex-direction:column;
+        margin-bottom:2rem;
+    } 
 `
 const StyleDivDescription = styled.div`
     width:50%;
+    @media (max-width: 768px){
+        width:100%;
+        border-radius: 5px;
+    } 
+`
+const LogementParagraphe =styled.p`
+    @media (max-width: 768px){
+        font-size:12px;
+    }  
 `
 const StyleDivEquipements = styled.div`
     width:50%;
+    @media (max-width: 768px){
+        width:100%;
+        border-radius: 5px;
+    } 
+
 `
 
 function Logements(){
@@ -131,7 +188,7 @@ const navigate = useNavigate();
                                             {element}
                                         </StyleTag>
                                     })}
-                                    <StyleDivStar  key ={item.rating}>
+                                    <StyleDivStar >
                                         {range.map((start) => {
                                            return (parseInt(item.rating) >= start?
                                             <VscStarFull style = {StyleStarFull} />:
@@ -142,12 +199,12 @@ const navigate = useNavigate();
                                 <StyleCollapseDiv>
                                     <StyleDivDescription>
                                         <Collapse label="Description">
-                                            <p>{item.description}</p>
+                                            <LogementParagraphe>{item.description}</LogementParagraphe>
                                         </Collapse>
                                     </StyleDivDescription>
                                     <StyleDivEquipements>
                                         <Collapse label="Équipements">
-                                            <p>{item.equipments}</p>
+                                            <LogementParagraphe>{item.equipments}</LogementParagraphe>
                                         </Collapse>
                                     </StyleDivEquipements>
                                 </StyleCollapseDiv>

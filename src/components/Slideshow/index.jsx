@@ -17,11 +17,13 @@ const styleLeft = {height:"120px", width:"100%", weight:"700", color:"white",pos
 
 const styleRight = {height:"120px", width:"100%", weight:"700", color:"white", position:"relative", top: "-150%", right:"-15%"};
 
+const media = {'@media (max-width: 650px)':{height:"20px", position:"relative", top: "-200%", left:"-15%"}}
+
 const SlideImgIconDiv = styled.div`
     display:flex;
     flex-direction:column;
     width:100%;
-    @media (max-width: 768px){
+    @media (max-width:768px){
         width:30%;
     }   
 `
@@ -59,7 +61,6 @@ const SpanNumber = styled.span`
     @media (max-width: 768px){
         display:none;
     }  
-    
 `
 
 function Slider(props){
@@ -86,7 +87,7 @@ return (
                 <SlideImg src={slide[currentIndex]} alt =""></SlideImg>
             </SlideImgDiv>
             <SlideChevron style={{ visibility:slide.length -1 === 0 ? 'hidden': 'visible'}}>
-                <VscChevronLeft style ={styleLeft}  onClick={prevSlide}/>
+                <VscChevronLeft style = {styleLeft}  onClick={prevSlide}/>
                 <VscChevronRight style ={styleRight} onClick={nextSlide} />
             </SlideChevron>
             <SlideImgIconDiv style={{visibility:slide.length -1 === 0 ? 'hidden': 'visible'}}>
