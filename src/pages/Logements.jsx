@@ -166,57 +166,56 @@ const range = [1,2,3,4,5];
 
 const navigate = useNavigate();
 
-const LogementFind = logements.find(logement =>
+const logementFind = logements.find(logement =>
     logement.id === id);
 
-useEffect(() =>{
-    if (LogementFind === undefined){
-        navigate("/Error");
+useEffect(() => {
+    if(logementFind === undefined){
+        return navigate("/Error");
     }
-})
+}, [])
 
 return(<div>
-            <div key={LogementFind.id}>
-                <Slider slide={LogementFind.pictures} />
-                    <StylePage>
-                        <StyleDivTitle>
-                            <StyleTitle>{LogementFind.title}</StyleTitle>
-                            <StyleLocation>{LogementFind.location}</StyleLocation>
-                        </StyleDivTitle>
-                        <StyleDivHost key={LogementFind.host}>
-                            <StyleHost>{LogementFind.host.name}</StyleHost>
-                            <StyleImg src= {LogementFind.host.picture} alt=""></StyleImg>
-                        </StyleDivHost>
-                    </StylePage>
-                    <StyleDivTag>
-                        <StyleDivParagraphe>
-                            {LogementFind.tags.map((element) =>{
-                                return <StyleTag>
-                                    {element}
-                                </StyleTag>
-                            })}
-                        </StyleDivParagraphe>
-                        <StyleDivStar >
-                            {range.map((start) => {
-                                return (parseInt(LogementFind.rating) >= start?
-                                <VscStarFull className="iconFull" />:
-                                <VscStarFull className="iconEmpty" />)
-                            })}                                                                                                            
-                        </StyleDivStar>  
-                    </StyleDivTag>
-                    <StyleCollapseDiv>
-                        <StyleDivDescription>
-                            <Collapse label="Description">
-                                <LogementParagraphe>{LogementFind.description}</LogementParagraphe>
-                            </Collapse>
-                        </StyleDivDescription>
-                        <StyleDivEquipements>
-                            <Collapse label="Équipements">
-                                <LogementParagraphe>{LogementFind.equipments}</LogementParagraphe>
-                            </Collapse>
-                        </StyleDivEquipements>
-                    </StyleCollapseDiv>
-            </div>         
+            <Slider slide= {logementFind.pictures} />
+                <StylePage>
+                    <StyleDivTitle>
+                        <StyleTitle>{logementFind.title}</StyleTitle>
+                        <StyleLocation>{logementFind.location}</StyleLocation>
+                    </StyleDivTitle>
+                    <StyleDivHost>
+                        <StyleHost>{logementFind.host.name}</StyleHost>
+                        <StyleImg src= {logementFind.host.picture} alt=""></StyleImg>
+                    </StyleDivHost>
+                </StylePage>
+                <StyleDivTag>
+                    <StyleDivParagraphe>
+                        {logementFind.tags.map((element) =>{
+                            return <StyleTag>
+                                {element}
+                            </StyleTag>
+                        })}
+                    </StyleDivParagraphe>
+                    <StyleDivStar >
+                        {range.map((start) => {
+                            return (parseInt(logementFind.rating) >= start?
+                            <VscStarFull className="iconFull" />:
+                            <VscStarFull className="iconEmpty" />)
+                        })}                                                                                                            
+                    </StyleDivStar>  
+                </StyleDivTag>
+                <StyleCollapseDiv>
+                    <StyleDivDescription>
+                        <Collapse label="Description">
+                            <LogementParagraphe>{logementFind.description}</LogementParagraphe>
+                        </Collapse>
+                    </StyleDivDescription>
+                    <StyleDivEquipements>
+                        <Collapse label="Équipements">
+                            <LogementParagraphe>{logementFind.equipments}</LogementParagraphe>
+                        </Collapse>
+                    </StyleDivEquipements>
+                </StyleCollapseDiv>
+                  
         </div>)      
 }
 

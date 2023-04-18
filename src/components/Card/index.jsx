@@ -59,10 +59,10 @@ function Card(){
 
     return(
         <SectionCard>
-            {logements.map((item)=>
-                <LinkCard key={item.id} to={`/logements/${item.id}`}>
+            {logements.map((element)=>
+                <LinkCard key={element.id} to={`/logements/${element.id}`}>
                     <ArticleCard>
-                        <ParagrapheArticle >{item.title}</ParagrapheArticle>
+                        <ParagrapheArticle >{element.title}</ParagrapheArticle>
                     </ArticleCard>
                 </LinkCard>)}
         </SectionCard>)      
