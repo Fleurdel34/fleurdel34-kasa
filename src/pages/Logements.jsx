@@ -3,11 +3,13 @@
 import styled from "styled-components";
 import Slider from "../components/Slideshow";
 import logements from "../components/datas/logements.json";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import Collapse from "../components/Collapse";
 import { VscStarFull } from "react-icons/vsc";
 import { useEffect } from "react";
 import"../styles/Logements.css";
+import Error from "../components/Error";
+
 
 const StylePage = styled.div`
     display:flex;
@@ -158,69 +160,61 @@ const StyleDivEquipements = styled.div`
     } 
 `
 
-
 function Logements(){
 
 let {id} = useParams();
 
 const range = [1,2,3,4,5];
 
-const navigate = useNavigate();
+const logementFind = logements.find(logement =>
+    logement.id === id);
 
-let logementFind = undefined;
+if (logementFind === undefined){
+    return <Error />
+}
 
-logementFind = logements.find(logement =>
-    logement.id === id)
-
-useEffect(() => {
-
-    if(logementFind === undefined){
-        navigate("/Error");
-    }
-})
-
-return(<div>
-            <Slider slide= {logementFind.pictures} />
-                <StylePage>
-                    <StyleDivTitle>
-                        <StyleTitle>{logementFind.title}</StyleTitle>
-                        <StyleLocation>{logementFind.location}</StyleLocation>
-                    </StyleDivTitle>
-                    <StyleDivHost>
-                        <StyleHost>{logementFind.host.name}</StyleHost>
-                        <StyleImg src= {logementFind.host.picture} alt=""></StyleImg>
-                    </StyleDivHost>
-                </StylePage>
-                <StyleDivTag>
-                    <StyleDivParagraphe>
-                        {logementFind.tags.map((element) =>{
-                            return <StyleTag>
-                                {element}
-                            </StyleTag>
-                        })}
-                    </StyleDivParagraphe>
-                    <StyleDivStar >
-                        {range.map((start) => {
-                            return (parseInt(logementFind.rating) >= start?
-                            <VscStarFull className="iconFull" />:
-                            <VscStarFull className="iconEmpty" />)
-                        })}                                                                                                            
-                    </StyleDivStar>  
-                </StyleDivTag>
-                <StyleCollapseDiv>
-                    <StyleDivDescription>
-                        <Collapse label="Description">
-                            <LogementParagraphe>{logementFind.description}</LogementParagraphe>
-                        </Collapse>
-                    </StyleDivDescription>
-                    <StyleDivEquipements>
-                        <Collapse label="Équipements">
-                            <LogementParagraphe>{logementFind.equipments}</LogementParagraphe>
-                        </Collapse>
-                    </StyleDivEquipements>
-                </StyleCollapseDiv>
-                  
-        </div>)      
+return logementFind &&
+            <div>
+                <Slider slide= {logementFind.pictures} />
+                    <StylePage>
+                        <StyleDivTitle>
+                            <StyleTitle>{logementFind.title}</StyleTitle>
+                            <StyleLocation>{logementFind.location}</StyleLocation>
+                        </StyleDivTitle>
+                        <StyleDivHost>
+                            <StyleHost>{logementFind.host.name}</StyleHost>
+                            <StyleImg src= {logementFind.host.picture} alt=""></StyleImg>
+                        </StyleDivHost>
+                    </StylePage>
+                    <StyleDivTag>
+                        <StyleDivParagraphe>
+                            {logementFind.tags.map((element) =>{
+                                return <StyleTag>
+                                    {element}
+                                </StyleTag>
+                            })}
+                        </StyleDivParagraphe>
+                        <StyleDivStar >
+                            {range.map((start) => {
+                                return (parseInt(logementFind.rating) >= start?
+                                <VscStarFull className="iconFull" />:
+                                <VscStarFull className="iconEmpty" />)
+                            })}                                                                                                            
+                        </StyleDivStar>  
+                    </StyleDivTag>
+                    <StyleCollapseDiv>
+                        <StyleDivDescription>
+                            <Collapse label="Description">
+                                <LogementParagraphe>{logementFind.description}</LogementParagraphe>
+                            </Collapse>
+                        </StyleDivDescription>
+                        <StyleDivEquipements>
+                            <Collapse label="Équipements">
+                                <LogementParagraphe>{logementFind.equipments}</LogementParagraphe>
+                            </Collapse>
+                        </StyleDivEquipements>
+                    </StyleCollapseDiv>
+            </div>    
 }
 
 export default Logements;
