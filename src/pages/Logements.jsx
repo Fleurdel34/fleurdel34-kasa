@@ -158,6 +158,7 @@ const StyleDivEquipements = styled.div`
     } 
 `
 
+
 function Logements(){
 
 let {id} = useParams();
@@ -166,14 +167,17 @@ const range = [1,2,3,4,5];
 
 const navigate = useNavigate();
 
-const logementFind = logements.find(logement =>
-    logement.id === id);
+let logementFind = undefined;
+
+logementFind = logements.find(logement =>
+    logement.id === id)
 
 useEffect(() => {
+
     if(logementFind === undefined){
-        return navigate("/Error");
+        navigate("/Error");
     }
-}, [])
+})
 
 return(<div>
             <Slider slide= {logementFind.pictures} />
