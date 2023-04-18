@@ -6,7 +6,6 @@ import logements from "../components/datas/logements.json";
 import { useParams } from "react-router-dom";
 import Collapse from "../components/Collapse";
 import { VscStarFull } from "react-icons/vsc";
-import { useEffect } from "react";
 import"../styles/Logements.css";
 import Error from "../components/Error";
 
