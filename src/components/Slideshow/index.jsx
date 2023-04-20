@@ -21,6 +21,9 @@ const SlideImgIconDiv = styled.div`
     display:flex;
     flex-direction:column;
     width:100%;
+    height: 32px;
+    position: relative;
+    transform: translateY(-250%);
     @media (max-width:768px){
         width:30%;
     }   

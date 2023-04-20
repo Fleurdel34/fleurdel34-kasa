@@ -16,7 +16,7 @@ const CollapseDivArrow=styled.div`
     justify-content:space-between;
     background: #FF6060;
     border-radius: 5px;
-    height:47px;
+    height:50px;
     width:71%;
     font-family: 'Montserrat';
     font-style: normal;
@@ -33,7 +33,7 @@ const CollapseDivArrow=styled.div`
     }     
 `
 const StyleButton = styled.button`
-    width:40px;
+    width:30px;
     border:none;
     background-color:#FF6060;
     margin-right:1rem;

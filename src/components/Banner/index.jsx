@@ -8,6 +8,8 @@ const BannerDiv = styled.div`
     align-items:center;
     margin-top:5rem;
     margin-bottom:5rem;
+    height:223px;
+    position:relative;
     @media (max-width: 768px){
         margin-top:1rem;
         height:111px;
@@ -19,7 +21,7 @@ const BannerImg = styled.img`
     position:absolute;
     object-fit:cover;
     width:86%;
-    height:29%;
+    height:223px;
     border-radius:25px;
     filter: brightness(0.65);
     -webkit-filter: brightness(0.65);

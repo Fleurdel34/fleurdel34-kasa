@@ -187,17 +187,17 @@ return logementFind &&
                     </StylePage>
                     <StyleDivTag>
                         <StyleDivParagraphe>
-                            {logementFind.tags.map((element) =>{
-                                return <StyleTag>
+                            {logementFind.tags.map((element, index) =>{
+                                return <StyleTag key={`${element}-${index}`}>
                                     {element}
                                 </StyleTag>
                             })}
                         </StyleDivParagraphe>
                         <StyleDivStar >
-                            {range.map((start) => {
+                            {range.map((start, index) => {
                                 return (parseInt(logementFind.rating) >= start?
-                                <VscStarFull className="iconFull" />:
-                                <VscStarFull className="iconEmpty" />)
+                                <VscStarFull className="iconFull" key={`${start}-${index}`}/>:
+                                <VscStarFull className="iconEmpty" key={`${start}-${index}`}/>)
                             })}                                                                                                            
                         </StyleDivStar>  
                     </StyleDivTag>
